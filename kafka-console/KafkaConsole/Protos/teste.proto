@@ -1,0 +1,34 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "testeProto";
+
+
+package teste;
+
+
+service Tester {
+
+  rpc SalvarUsuario (ModeloRequest) returns (ModelResponse);
+}
+
+
+message ModeloRequest {
+  string nome = 1;
+  string endereco = 2;
+  string telefone = 3;
+  int32 id = 4;
+  google.protobuf.Int32Value intNull = 5;
+  repeated string valorRepetido = 6;
+  OutroModelo obj = 7;
+}
+
+message OutroModelo {
+	string texto = 1;
+}
+
+
+message ModelResponse {
+  string resposta = 1;
+}
